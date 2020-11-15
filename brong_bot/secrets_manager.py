@@ -5,7 +5,6 @@ from botocore.exceptions import ClientError
 
 
 def get_discord_api_key():
-
     secret_name = "BrongBot/DiscordToken"
     region_name = "us-west-2"
 

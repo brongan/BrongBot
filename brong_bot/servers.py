@@ -10,7 +10,15 @@ class EC2_Instances(Enum):
     Minecraft = "i-08603abb89172582b"
 
 
-def startServer(ec2_instance: EC2_Instances):
+def get_instance(name):
+    if name.lower() == 'factorio':
+        return EC2_Instances.Factorio
+    if name.lower() == 'minecraft':
+        return EC2_Instances.Minecraft
+    None
+
+
+def start_server(ec2_instance: EC2_Instances):
     ec2 = boto3.resource("ec2", "us-west-2")
 
     try:
@@ -22,7 +30,16 @@ def startServer(ec2_instance: EC2_Instances):
         logging.error(e)
 
 
-def stopServer(ec2_instance: EC2_Instances):
+def get_status(ec2_instance: EC2_Instances):
+    ec2 = boto3.resource("ec2", "us-west-2")
+    try:
+        instance = ec2.Instance(id=ec2_instance.value)
+        return instance.state['Name']
+    except ClientError as e:
+        logging.error(e)
+
+
+def stop_server(ec2_instance: EC2_Instances):
     ec2 = boto3.resource("ec2", "us-west-2")
     try:
         instance = ec2.Instance(id=ec2_instance.value)
