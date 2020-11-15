@@ -1,0 +1,11 @@
+[Unit]
+Description=Brong Bot
+After=networking.target
+
+[Service]
+Type=Simple
+ExecStart=/usr/sbin/brong_bot.py
+
+[Install]
+WantedBy=multi-user.target
+
