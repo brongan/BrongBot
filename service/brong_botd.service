@@ -4,7 +4,8 @@ After=networking.target
 
 [Service]
 Type=Simple
-ExecStart=/usr/sbin/brong_bot.py
+ExecStart=/usr/bin/brong_botd
+EnvironmentFile=/etc/sysconfig/brong_botd/aws_environment
 
 [Install]
 WantedBy=multi-user.target

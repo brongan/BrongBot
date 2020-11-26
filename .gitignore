@@ -1,6 +1,6 @@
 dist/
 *.egg-info/
 build/
-__pycache__/
+./brong_bot/__pycache__/
 *.py[cod]
 

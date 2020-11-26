@@ -9,7 +9,7 @@ setup(
     version="0.0.1",
     author="HBBrennan",
     description="Bot to Control my AWS Servers",
-    entry_points={"console_scripts": ["brong_bot = brong_bot.bot:main"]},
+    entry_points={"console_scripts": ["brong_botd = brong_bot.bot:main"]},
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/HBBrennan/BrongBot",
